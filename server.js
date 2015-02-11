@@ -2,6 +2,12 @@ var express = require('express');
 var orm = require('orm');
 var app = express();
 
+var MailChimp = require('mailchimp').MailChimpAPI;
+
+var mailchimp = MailChimp(process.env.MAILCHIMP_KEY, { version : '1.3', secure: false });
+
+console.log(mailchimp);
+console.log(process.env.MAILCHIMP_KEY);
 
 // body parsing
 var app = require('express')();
@@ -32,15 +38,30 @@ app.use(orm.express(process.env.DATABASE_URL || "pg://postgres@localhost/mixbox"
 //serve static content
 app.use(express.static(__dirname + '/public'));
 
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
 app.post('/signup', function(req, res){
 
-  req.models.person.create([ req.body ], function(err, items){
-    // console.log([err, items]);
+  req.models.person.create([ req.body ], function(db_err, items){
 
-    res.status(err ? 400 : 200).end();
+    // mailchimp.lists({
+    //   limit: 1
+    // }, function(err, data){
+    //   console.log([err,data]);
+    //   res.status(400).end();
+    // });
+    console.log(req.body);
+
+    mailchimp.listSubscribe({
+      // id: process.env.MAILCHIMP_LIST,
+      email_address: req.body.email,
+    }, function(mc_err, data){
+      if(db_err||mc_err){
+        console.log([db_err, mc_err]);
+        res.status(400).end();
+      }else{
+        res.status(200).end();
+      }
+    });
+
   });
 });
 
