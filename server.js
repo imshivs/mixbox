@@ -6,9 +6,6 @@ var MailChimp = require('mailchimp').MailChimpAPI;
 
 var mailchimp = MailChimp(process.env.MAILCHIMP_KEY, { version : '1.3', secure: false });
 
-console.log(mailchimp);
-console.log(process.env.MAILCHIMP_KEY);
-
 // body parsing
 var app = require('express')();
 var bodyParser = require('body-parser');
@@ -38,28 +35,45 @@ app.use(orm.express(process.env.DATABASE_URL || "pg://postgres@localhost/mixbox"
 //serve static content
 app.use(express.static(__dirname + '/public'));
 
+
 app.post('/signup', function(req, res){
 
-  req.models.person.create([ req.body ], function(db_err, items){
+  //add them to the database
+  req.models.person.create([{
+    email: req.body.email,
+    ip_address: req.connection.remoteAddress,
+    user_agent: req.headers["user-agent"],
+    date: new Date()
+  }], function(db_err, items){
 
-    // mailchimp.lists({
-    //   limit: 1
-    // }, function(err, data){
-    //   console.log([err,data]);
-    //   res.status(400).end();
-    // });
-    console.log(req.body);
+    if(db_err){
+      console.log(db_err);
+      res.status(400).end();
+      return;
+    }
 
+    var person = items[0];
+
+    //subscribe them to the mailchimp list
     mailchimp.listSubscribe({
-      // id: process.env.MAILCHIMP_LIST,
-      email_address: req.body.email,
+      id: process.env.MAILCHIMP_LIST,
+      email_address: person.email,
+      merge_vars: {
+        OPTIN_IP:     person.ip_address,
+        OPTIN_TIME:   person.date,
+      },
+      double_optin: false, //using confirmed opt-in
+      send_welcome: true,
+      update_existing: true
     }, function(mc_err, data){
-      if(db_err||mc_err){
-        console.log([db_err, mc_err]);
+      if(mc_err){
+        console.log(mc_err);
         res.status(400).end();
-      }else{
-        res.status(200).end();
+        return;
       }
+      console.log(["added:", person, data]);
+
+      res.status(200).end();
     });
 
   });
@@ -68,3 +82,14 @@ app.post('/signup', function(req, res){
 var port = process.env.PORT || 5000;
 app.listen(port);
 console.log("Listening on "+port);
+
+
+
+
+// mailchimp.lists({
+//   limit: 1
+// }, function(err, data){
+//   console.log(data);
+//   res.status(400).end();
+// });
+// console.log(req.body);
