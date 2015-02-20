@@ -18,9 +18,6 @@
   <link href="http://diliat.in/wrapbootstrap/Teplok/1.0/OnePageParallax/assets/css/style.css" rel="stylesheet">
   <link href="http://diliat.in/wrapbootstrap/Teplok/1.0/OnePageParallax/assets/css/style-responsive.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Mr+De+Haviland' rel='stylesheet' type='text/css'>
-
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="js/unslider.min.js"></script>
     <!--[if lt IE 7]>
             <link href="css/fontello-ie7.css" type="text/css" rel="stylesheet">  
         <![endif]-->
@@ -42,19 +39,6 @@
         <![endif]-->
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/mixbox-logo-grey.ico">
-    <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <!-- Load ScrollTo -->
-    <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
-    <!-- Load LocalScroll -->
-    <script type="text/javascript" src="js/jquery.localscroll-1.2.7-min.js"></script>
-    <!-- prettyPhoto Initialization -->
-    <script type="text/javascript" charset="utf-8">
-          $(document).ready(function(){
-            $("a[rel^='prettyPhoto']").prettyPhoto();
-});
-    </script>
-
     </head>
     <body>
     <!--******************** NAVBAR ********************-->
@@ -64,7 +48,7 @@
           <div class="container">
             <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-            <h1 class="brand"><a href="#top"><img style="margin-bottom:3%; margin-right: 1%" src="img/mixbox-logo.PNG" WIDTH="8%">MIXBOX</a></h1>
+            <h1 class="brand"><a href="#top"><img style="margin-bottom:3%; margin-right: 1%" src="img/mixbox-logo.png" WIDTH="8%">MIXBOX</a></h1>
             <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
             <nav class="pull-right nav-collapse collapse">
               <ul id="menu-main" class="nav">
@@ -89,6 +73,10 @@
 
       <img src="img/splashsb2.png" style="margin-top:-4%;margin-bottom:5%"></img>
       <br></br>
+      <form  id="signup">
+        <input type="email" name="email" placeholder="Enter your email address"></input>
+        <input type="submit"></input>
+      </form>
 <!--       <a sty = "transition: all 0.3s ease-in-out;" href="#scrollblock"><img src="img/carrot.png" style="margin-top:-6%; margin-right:1%; width:10%"></img></a> -->
     </div>
 
@@ -105,7 +93,7 @@
           <!-- FEATURES COLUMN -->
           <div class="row" style="margin-left:15%;margin-right:15%;margin-top:-6%">
             <div class="col-md-4 col-sm-6" >
-                  <img src="img/what-you-get.PNG" ></img>
+                  <img src="img/what-you-get.png" ></img>
             <div>
             <div class="col-md-4 col-sm-6" >
               <div class="the-box-landing border-hover-bottom text-center">
@@ -245,15 +233,28 @@
       <!-- ./container -->
     </div>
     <!-- Loading the javaScript at the end of the page -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/unslider.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+    <!-- Load ScrollTo -->
+    <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
+    <!-- Load LocalScroll -->
+    <script type="text/javascript" src="js/jquery.localscroll-1.2.7-min.js"></script>
+    <!-- prettyPhoto Initialization -->
+    <script type="text/javascript" charset="utf-8">
+          $(document).ready(function(){
+            $("a[rel^='prettyPhoto']").prettyPhoto();
+          });
+    </script>
+
     <script type="text/javascript" src="js/site.js"></script>
     
     <!--ANALYTICS CODE-->
 	<script type="text/javascript">
 	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-29231762-1']);
-	  _gaq.push(['_setDomainName', 'dzyngiri.com']);
+	  // _gaq.push(['_setAccount', 'UA-29231762-1']);
+	  // _gaq.push(['_setDomainName', 'dzyngiri.com']);
 	  _gaq.push(['_trackPageview']);
 	
 	  (function() {

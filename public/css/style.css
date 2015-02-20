@@ -53,7 +53,8 @@ color:#333;
 }
 /*---------- FORMS ----------*/
 
-input[type=text], input[type=submit], textarea {
+input[type=text],
+input[type=email], input[type=submit], textarea {
 	width: 100%;
 	padding: 0.5em;
 	font-size: 1em;
@@ -284,7 +285,8 @@ ul#menu-main > li > a:hover {
 #headerwrap h1 span {
 	color:#536267;
 }
-#headerwrap input[type=text] {
+#headerwrap input[type=text],
+#headerwrap input[type=email] {
 	background: rgba(227, 231, 228, 1);
 	font-family: 'Open Sans', sans serif;
 	font-size: 1.3125em;
@@ -293,14 +295,16 @@ ul#menu-main > li > a:hover {
 	vertical-align: middle;
 	margin-bottom:0 !important;
 }
-#headerwrap input[type=text]:focus {
+#headerwrap input[type=text]:focus,
+#headerwrap input[type=email]:focus {
 	background: #43413e;
 	color: #eff1ef;
 	transition: background 0.25 ease-in;
 	-moz-transition: background 0.25 ease-in;
 	-webkit-transition: background 0.25 ease-in;
 }
-#headerwrap input[type=text] {
+#headerwrap input[type=text],
+#headerwrap input[type=email] {
 	height: 2.9em;
 	width:50%;
 }
@@ -525,7 +529,7 @@ article.post {
 article .inside {
 	margin: 18px 24px 24px;
 	padding-top: 1em;
-	background: url("../img/dot-row-2.png") repeat-x scroll 0 0 transparent !important;
+	/*background: url("../img/dot-row-2.png") repeat-x scroll 0 0 transparent !important;*/
 }
 .post-date {
 	color: #A5A5A2;
@@ -606,14 +610,16 @@ section#team .align, section#contact .align {
 	position: relative;
 	z-index: 999;
 }
-#theme-form input[type=text], .cform-form textarea {
+#theme-form input[type=text],
+#theme-form input[type=email], .cform-form textarea {
 	background: rgba(227, 231, 228, 1);
 	font-family: 'Open Sans', sans serif;
 	border: 0;
 	text-align: left;
 	vertical-align: middle;
 }
-#theme-form input[type=text]:focus, .cform-form textarea:focus {
+#theme-form input[type=text]:focus,
+#theme-form input[type=email]:focus, .cform-form textarea:focus {
 	background: rgba(101, 106, 100, 1);
 	color: #eff1ef;
 	box-shadow: none;
@@ -623,7 +629,8 @@ section#team .align, section#contact .align {
 	-moz-transition: background 0.25 ease-in;
 	-webkit-transition: background 0.25 ease-in;
 }
-#theme-form input[type=text] {
+#theme-form input[type=text],
+#theme-form input[type=email] {
 	height: 3.25em;
 }
 #theme-form input[type=submit] {

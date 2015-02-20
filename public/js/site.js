@@ -15,7 +15,24 @@
           dots: true,               //  Display dot navigation
           fluid: false              //  Support responsive design. May break non-responsive designs
         });
-  });
-	
-	
 
+        //form submission
+        $('#signup').submit(function(e){
+          //show loader
+          e.preventDefault();
+
+          $.ajax({
+            url: '/signup',
+            type: 'POST',
+            data: {
+              email: $('input[name=email]').val()
+            }
+          }).done(function(data, status, jqXHR){
+            //show quiz
+          })
+          .always(function(){
+            //hide loader
+          });
+
+        });
+  });
