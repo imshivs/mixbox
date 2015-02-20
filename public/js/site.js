@@ -29,6 +29,7 @@
             }
           }).done(function(data, status, jqXHR){
             //show quiz
+            $('#start-quiz').show(200);
           })
           .always(function(){
             //hide loader

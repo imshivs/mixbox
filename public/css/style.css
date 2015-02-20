@@ -54,7 +54,8 @@ color:#333;
 /*---------- FORMS ----------*/
 
 input[type=text],
-input[type=email], input[type=submit], textarea {
+input[type=email], input[type=submit],
+a.button, textarea {
 	width: 100%;
 	padding: 0.5em;
 	font-size: 1em;
@@ -308,7 +309,7 @@ ul#menu-main > li > a:hover {
 	height: 2.9em;
 	width:50%;
 }
-#headerwrap input[type=submit] {
+#headerwrap input[type=submit], a.button {
 	font-family: 'Abel';
 	color: #fff;
 	width: 185px;
@@ -324,7 +325,7 @@ ul#menu-main > li > a:hover {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 }
-#headerwrap input[type=submit]:hover, #headerwrap input[type=submit]:active {
+#headerwrap input[type=submit]:hover, a.button:hover, a.button:active, #headerwrap input[type=submit]:active {
 	background: #43413e !important;
 }
 #headerwrap a {
@@ -633,7 +634,7 @@ section#team .align, section#contact .align {
 #theme-form input[type=email] {
 	height: 3.25em;
 }
-#theme-form input[type=submit] {
+#theme-form input[type=submit], a.button, {
 	font-family: 'Abel';
 	color: #fff;
 	width: 185px;
@@ -654,7 +655,7 @@ section#team .align, section#contact .align {
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 }
-#theme-form input[type=submit]:hover, #theme-form input[type=submit]:active {
+#theme-form input[type=submit]:hover, #theme-form a.button:hover, #theme-form a.button:active, #theme-form input[type=submit]:active {
 	background: #43413e !important;
 }
 #theme-form textarea {
@@ -1046,7 +1047,7 @@ footer p {
 		#theme-form {
  overflow: hidden;
 }
- #theme-form input[type=submit] {
+ #theme-form input[type=submit], #theme-form a.button {
  width: 100%;
 }
 }
@@ -1136,3 +1137,7 @@ footer p {
       width: 100%
     }
       #optin input[type="submit"]:hover { color: #ffdeb3 }
+
+.typeform-share {
+	display: none;
+}

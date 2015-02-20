@@ -71,10 +71,11 @@ app.post('/signup', function(req, res){
     //     res.status(400).end();
     //     return;
     //   }
-      console.log(["added:", person, data]);
+      // console.log(["added:", person, data]);
+      console.log(["added:", person]);
 
-      // res.status(200).end();
-      res.redirect('/?quiz='+person.id);
+      res.status(200).end(""+person.id);
+      // res.redirect('/?quiz='+person.id);
     // });
 
   });
