@@ -13,7 +13,6 @@
     "tests"
   ],
   "dependencies": {
-    "jquery-prettyPhoto": "*",
     "bootstrap": "~2.3.0",
     "jquery": "2.3.0",
     "fontawesome": "~4.3.0"
