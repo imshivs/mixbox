@@ -256,7 +256,7 @@ ul#menu-main > li > a:hover {
 /* ---------------------------------------------------------------------------------------------------------- 
 05 Single-Page Sections ------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------- */
-#headerwrap {
+.headerwrap {
   width: 100%;
   background:  url(../img/bar-blur-grey.png) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -268,14 +268,14 @@ ul#menu-main > li > a:hover {
   height: 100vh;
   margin-top: -46px; /* TODO bad practice*/
 }
-#headerwrap h1 {
+.headerwrap h1 {
   color: #FFFFFF;
   font-family: 'Abel';
   font-size: 2em;
   font-weight: 400;
   /*margin: 1em 0;*/
 }
-#headerwrap h2 {
+.headerwrap h2 {
   color: #FFFFFF;
   font-family: 'Open Sans', sans serif;
   font-size: 2em;
@@ -283,11 +283,11 @@ ul#menu-main > li > a:hover {
   margin: 0.5em 0;
   text-shadow: 1px 1px 1px #333333;
 }
-#headerwrap h1 span {
+.headerwrap h1 span {
   color:#536267;
 }
-#headerwrap input[type=text],
-#headerwrap input[type=email] {
+.headerwrap input[type=text],
+.headerwrap input[type=email] {
   background: rgba(227, 231, 228, 1);
   font-family: 'Open Sans', sans serif;
   font-size: 1.3125em;
@@ -296,20 +296,20 @@ ul#menu-main > li > a:hover {
   vertical-align: middle;
   margin-bottom:0 !important;
 }
-#headerwrap input[type=text]:focus,
-#headerwrap input[type=email]:focus {
+.headerwrap input[type=text]:focus,
+.headerwrap input[type=email]:focus {
   background: #43413e;
   color: #eff1ef;
   transition: background 0.25 ease-in;
   -moz-transition: background 0.25 ease-in;
   -webkit-transition: background 0.25 ease-in;
 }
-#headerwrap input[type=text],
-#headerwrap input[type=email] {
+.headerwrap input[type=text],
+.headerwrap input[type=email] {
   height: 2.9em;
   width:50%;
 }
-#headerwrap input[type=submit], a.button {
+.headerwrap input[type=submit], a.button {
   font-family: 'Abel';
   color: #fff;
   width: 185px;
@@ -325,10 +325,10 @@ ul#menu-main > li > a:hover {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
 }
-#headerwrap input[type=submit]:hover, a.button:hover, a.button:active, #headerwrap input[type=submit]:active {
+.headerwrap input[type=submit]:hover, a.button:hover, a.button:active, .headerwrap input[type=submit]:active {
   background: #43413e !important;
 }
-#headerwrap a {
+.headerwrap a {
   transition: background 0.25 ease-in;
   -moz-transition: background 0.25 ease-in;
   -webkit-transition: background 0.25 ease-in;  
@@ -869,7 +869,7 @@ footer p {
 }
 }
  @media (min-width: 768px) and (max-width: 979px) {
- #headerwrap {
+ .headerwrap {
  padding-top:0;
 }
 }
@@ -915,19 +915,19 @@ footer p {
     
     /* Smaller screens ----------- */
   @media (max-width : 480px) {
- #headerwrap {
+ .headerwrap {
  padding-top:0;
 }
- #headerwrap h1 {
+ .headerwrap h1 {
  font-size:2em;
 }
- #headerwrap h2 {
+ .headerwrap h2 {
  font-size:1em;
 }
- #headerwrap input[type="text"] {
+ .headerwrap input[type="text"] {
  width: 100%;
 }
- #headerwrap input[type="submit"] {
+ .headerwrap input[type="submit"] {
  margin-top:1em;
  width: 135px;
 }
