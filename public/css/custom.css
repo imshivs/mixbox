@@ -94,6 +94,7 @@ article .inside {
 
 .splash {
   margin-top: 9%;
+  margin-top: 16vh;
   margin-bottom: 5%;
   margin-left: 8px;
 }
@@ -145,4 +146,8 @@ article .inside {
 }
 #optin input[type="submit"]:hover {
   color: #ffdeb3;
+}
+
+.header-logo {
+  vertical-align: bottom;
 }
