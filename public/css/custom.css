@@ -1,0 +1,21 @@
+.typeform-share {
+  display: none;
+}
+
+.carrot {
+  font-size: 25px;
+  color: white;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+.navbar-wrapper {
+  height:0px;
+}
+
+.splash {
+  margin-top: 9%;
+  margin-bottom: 5%;
+  margin-left: 8px;
+}
