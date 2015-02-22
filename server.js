@@ -17,19 +17,19 @@ app.use(multer()); // for parsing multipart/form-data
 
 
 app.use(orm.express(process.env.DATABASE_URL || "pg://postgres@localhost/mixbox", {
-    define: function (db, models, next) {
+  define: function (db, models, next) {
 
-       models.person = db.define("person", {
-          email: String,
-          ip_address: String,
-          user_agent: String,
-          date: Date
-        });
+     models.person = db.define("person", {
+        email: String,
+        ip_address: String,
+        user_agent: String,
+        date: Date
+      });
 
-        db.sync(); //auto-create tables
+      db.sync(); //auto-create tables
 
-        next();
-    }
+      next();
+  }
 }));
 
 //serve static content
