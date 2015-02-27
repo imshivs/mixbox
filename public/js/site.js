@@ -33,23 +33,47 @@ jQuery(document).ready(function($) {
     });
   });
 
-  //form submission
-  $('#signup').submit(function(e){
-    //show loader
-    e.preventDefault();
+  // //form submission
+  // $('#signup').submit(function(e){
+  //   //show loader
+  //   e.preventDefault();
 
-    $.ajax({
-      url: '/signup',
-      type: 'POST',
-      data: {
-        email: $('input[name=email]').val()
+  //   $.ajax({
+  //     url: '/signup',
+  //     type: 'POST',
+  //     data: {
+  //       email: $('input[name=email]').val()
+  //     }
+  //   }).done(function(data, status, jqXHR){
+  //     //show quiz
+  //     $('#start-quiz').show(200);
+  //   })
+  //   .always(function(){
+  //     //hide loader
+  //   });
+  // });
+
+  $('.get-started').magnificPopup({
+    src: '#subscribe',
+    type: 'inline',
+    preloader: false,
+    focus: '#email',
+
+    // When elemened is focused, some mobile browsers in some cases zoom in
+    // It looks not nice, so we disable it:
+    callbacks: {
+      beforeOpen: function() {
+        if($(window).width() < 700) {
+          this.st.focus = false;
+        } else {
+          this.st.focus = '#email';
+        }
+      },
+      open: function() {
+        console.log( this.currItem.el ); //$(this.currItem.el).attr('position')
       }
-    }).done(function(data, status, jqXHR){
-      //show quiz
-      $('#start-quiz').show(200);
-    })
-    .always(function(){
-      //hide loader
-    });
+    }
   });
+
+
 });

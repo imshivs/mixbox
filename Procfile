@@ -1,1 +1,1 @@
-web: node node_modules/swank/swank.js . --port=$PORT
+web: node server.js

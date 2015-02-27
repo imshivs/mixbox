@@ -12,6 +12,7 @@
     <link href="http://diliat.in/wrapbootstrap/Teplok/1.0/OnePageParallax/assets/third/hovericon/css/component.css" rel="stylesheet">
     <link href="http://diliat.in/wrapbootstrap/Teplok/1.0/OnePageParallax/assets/css/style.css" rel="stylesheet">
     <link href="http://diliat.in/wrapbootstrap/Teplok/1.0/OnePageParallax/assets/css/style-responsive.css" rel="stylesheet">
+    <link href="vendor/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
 
     <link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
@@ -59,6 +60,8 @@
     <div id="headerwrap">
 
       <img class="splash" src="img/splashsb2.png"></img>
+      <br/>
+      <button class="get-started" position="splash">Get Started</button>
       <div class="carrot">
         <i class="fa fa-angle-down"></i>
       </div>
@@ -66,11 +69,12 @@
     </div>
 
     <!--******************** Feature ********************-->
-    <div class="section-page-landing section-light-grey headerwrap" id="subscribe">
+    <div class="popup-subscribe mfp-hide white-popup-block" id="subscribe">
       <div class="inner-section">
         <div class="container">
 
           <form  id="signup">
+            <input type="hidden" name="button"></input>
             <input type="email" name="email" placeholder="Enter your email address"></input>
           <!-- TYPEFORM -->
     <!--       <a class="typeform-share button" id="start-quiz" href="https://charlesjuliank.typeform.com/to/EtCsfo" data-mode="1" target="_blank"></a>
@@ -236,6 +240,7 @@
     <!-- Loading the javaScript at the end of the page -->
     <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/magnific-popup/dist/jquery.magnific-popup.js"></script>
     <script type="text/javascript" src="js/site.js"></script>    
     <!--ANALYTICS CODE-->
   	<script type="text/javascript">
