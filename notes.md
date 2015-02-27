@@ -127,6 +127,28 @@ Get two unique, delicious drinks delivered to your door every month.
 Try out drinks for your next social event
 
 
+http://subscriptioncommerceinsider.com/subscription-commerce-market/
+
+http://www.lexisnexis.com/risk/products/instant-age-verification.aspx
+
+
+Concerns
+
+
+Legal
+  - shipping alcohol
+  - knowing user age
+  - state availablility
+
+
+
+business strategy
+  - proven business model
+
+alcohol is expensive to help cover shipping costs
+
+
+
 
 Quiz
 ----

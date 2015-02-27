@@ -12,7 +12,7 @@
     <link href="http://diliat.in/wrapbootstrap/Teplok/1.0/OnePageParallax/assets/third/hovericon/css/component.css" rel="stylesheet">
     <link href="http://diliat.in/wrapbootstrap/Teplok/1.0/OnePageParallax/assets/css/style.css" rel="stylesheet">
     <link href="http://diliat.in/wrapbootstrap/Teplok/1.0/OnePageParallax/assets/css/style-responsive.css" rel="stylesheet">
-    <link href="vendor/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="vendor/jquery-modal/jquery.modal.css" rel="stylesheet">
 
     <link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
@@ -41,10 +41,10 @@
             <nav class="pull-right nav-collapse collapse">
               <ul id="menu-main" class="nav">
                 <!-- <li><a title="portfolio" href="#portfolio">Portfolio</a></li> -->
-                <li><a title="services" href="#subscribe">Subscribe</a></li>
-                <li><a title="news" href="#news">News</a></li>
-                <li><a title="team" href="#team">Team</a></li>
-                <li><a title="contact" href="#contact">Contact</a></li>
+                <li><a title="Get Started" rel="modal:open" href="#subscribe">Get Started</a></li>
+                <!-- <li><a title="How it works" href="#about">How it Works</a></li> -->
+                <!-- <li><a title="team" href="#team">Team</a></li> -->
+                <li><a title="contact" href="mailto:team@openmixbox.com">Contact</a></li>
               </ul>
             </nav>
           </div>
@@ -61,41 +61,31 @@
 
       <img class="splash" src="img/splashsb2.png"></img>
       <br/>
-      <button class="get-started" position="splash">Get Started</button>
+      <span class="tagline">Everything you need to make delicous mixed drinks, alcohol included</span>
+      <br/>
+      <a href="#subscribe" rel="modal:open" role="button" class="get-started btn" position="splash">Get Started</a>
+      <!-- <button class="gift" position="splash">Give as a Gift</button> -->
       <div class="carrot">
         <i class="fa fa-angle-down"></i>
       </div>
       <!-- <a sty = "transition: all 0.3s ease-in-out;" href="#scrollblock"><img src="img/carrot.png" style="margin-top:-6%; margin-right:1%; width:10%"></img></a> -->
     </div>
 
-    <!--******************** Feature ********************-->
-    <div class="popup-subscribe mfp-hide white-popup-block" id="subscribe">
-      <div class="inner-section">
-        <div class="container">
-
-          <form  id="signup">
-            <input type="hidden" name="button"></input>
-            <input type="email" name="email" placeholder="Enter your email address"></input>
-          <!-- TYPEFORM -->
-    <!--       <a class="typeform-share button" id="start-quiz" href="https://charlesjuliank.typeform.com/to/EtCsfo" data-mode="1" target="_blank"></a>
-          <script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}id=id+'_';if(!gi.call(d,id)){qs=ce.call(d,'link');qs.rel='stylesheet';qs.id=id;qs.href=b+'share-button.css';s=gt.call(d,'head')[0];s.appendChild(qs,s)}})()</script> -->
-            <input type="submit"></input>
-          </form>
-
-        </div>
-      </div>
+    <div id="subscribe" class="subscribe" style="display: none;">
+      <form  id="signup">
+        <input type="email" name="email" placeholder="Enter your email address"></input>
+<!--       <a class="typeform-share button" id="start-quiz" href="https://charlesjuliank.typeform.com/to/EtCsfo" data-mode="1" target="_blank"></a>
+      <script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}id=id+'_';if(!gi.call(d,id)){qs=ce.call(d,'link');qs.rel='stylesheet';qs.id=id;qs.href=b+'share-button.css';s=gt.call(d,'head')[0];s.appendChild(qs,s)}})()</script> -->
+        <input type="submit"></input>
+      </form>
     </div>
 
     <!--******************** Feature ********************-->
 
 <!-- SECTION TITLE -->
-    <div class="section-page-landing section-light-grey" id="features">
+<!--     <div class="section-page-landing section-light-grey" id="features">
       <div class="inner-section">
         <div class="container">
-
-          <!-- END FEATURES DESCRIPTION -->
-          
-          <!-- FEATURES COLUMN -->
           <div class="row" style="margin-left:15%;margin-right:15%;margin-top:-6%">
             <div class="col-md-4 col-sm-6" >
               <img src="img/what-you-get.png"/>
@@ -138,35 +128,30 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     <!--******************** Team Section ********************-->
-    <section id="team" class="single-page scrollblock">
+<!--     <section id="team" class="single-page scrollblock">
       <div class="container">
         <div class="align"><i class="icon-group-circled"></i></div>
         <h1>Meet the team</h1>
-        <!-- Five columns -->
         <div class="row">
           <div class="span2 offset3">
             <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-1.jpg" alt=""> </div>
             <h3>Andrew</h3>
             <div class="job-position">web designer</div>
           </div>
-          <!-- ./span2 -->
           <div class="span2">
             <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-2.jpg" alt=""> </div>
             <h3>Stephen</h3>
             <div class="job-position">web developer</div>
           </div>
-          <!-- ./span2 -->
           <div class="span2">
             <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-3.jpg" alt=""> </div>
             <h3>Maria</h3>
             <div class="job-position">graphic designer</div>
           </div>
-          <!-- ./span2 -->
         </div>
-        <!-- /.row -->
         <div class="row">
           <div class="span10 offset1">
             <hr class="featurette-divider">
@@ -176,15 +161,13 @@
               <p>At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues.</p>
               <p>A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.</p>
             </div>
-            <!-- /.featurette -->
             <hr class="featurette-divider">
           </div>
-          <!-- .span10 -->
         </div>
-        <!-- /.row -->
       </div>
-      <!-- /.container -->
-    </section>
+    </section> -->
+
+
     <!--******************** Contact Section ********************-->
     <!-- <section id="contact" class="single-page scrollblock">
       <div class="container">
@@ -222,25 +205,23 @@
               </form>
             </div>
           </div> -->
-          <!-- ./span12 -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container -->
-    </section>
-    <hr>
-    <div class="footer-wrapper">
-      <div class="container">
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </section> -->
+    <!-- <hr> -->
+    <!-- <div class="footer-wrapper"> -->
+      <!-- <div class="container"> -->
         <footer>
-          <small>&copy; 2015 Mixbox, LCC. All rights reserved.</small>
+          <small>&copy; 2015 Mixbox. All rights reserved.</small>
         </footer>
-      </div>
+      <!-- </div> -->
       <!-- ./container -->
-    </div>
+    <!-- </div> -->
     <!-- Loading the javaScript at the end of the page -->
-    <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="vendor/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="vendor/jquery-modal/jquery.modal.js"></script>
+    <!--<script type="text/javascript" src="vendor/magnific-popup/dist/jquery.magnific-popup.js"></script>-->
     <script type="text/javascript" src="js/site.js"></script>    
     <!--ANALYTICS CODE-->
   	<script type="text/javascript">

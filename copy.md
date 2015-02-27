@@ -6,7 +6,7 @@ Splash
 
 > Subscribe to mixbox and just add ice
 >
-> Everything you need to make delicous mixed drinks
+> Everything you need to make delicous mixed drinks, alcohol included
 >
 > [Get Started](#subscribe)   |   [Give as a Gift](#)
 
@@ -16,28 +16,60 @@ How it works
 
 video?
 
-> - Subscribe to Mixbox and take our drink preferences quiz.
-> - We'll hand-select a great drink for you, and pack all the ingredents neccessary to get started. Quality liquor, `adjective` mixers, the works.
-> - Get your box on Friday and kick off the weekend in style. `class-up your weekend?`
-> 
-> [Get Started](#subscribe)
-
-Pricing
--------
-
-> 1 box = 2 drinks (plus some leftovers)
->  - Price for 1/mo
->  - Price for 2/mo
->  - Price for 1/week
-> 
-> `annual subscription prices?`
+> - Sign up and tell us your drink preferences
+> - We'll carefully hand-pack all the elements of the perfect cocktail
+> - Get your box on delivered on Friday and start your weekend with class
 >
 > [Get Started](#subscribe)
 
-Charity/Good Cause
--------------------
+Features
+--------
 
-We help people! yay us! `link`
+
+
+
+
+Taste Profile
+-------------
+
+- curated drinks
+- you dont have to select drinks
+- learn about new drinks
+- save money by not buying a bunch of liquor
+- and not having to find all the weird ingredients
+- sample size  = experiement/discovery
+
+
+Social
+------
+
+- impress your friends
+- share your experience
+- giftable
+
+Experience
+----------
+
+- learn to bartend
+- first-class weekend
+- expereince new brands
+- top shelf alcohol
+
+
+
+Delivered to Your Door
+Less late night grocery runs.
+
+Taste Profile
+We develop customized drinks based upon your likes and dislikes.
+
+Learn Mixology
+All the mixers, bar accessories and incredible recipes that'll impress your friends.
+
+The Perfect Gift
+Birthday, Valentine's Day, Anniversity, Christmas--you name it, MIXBOX's got you covered.
+
+Top Shelf
 
 Footer
 ------

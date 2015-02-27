@@ -94,8 +94,8 @@ article .inside {
 
 .splash {
   margin-top: 9%;
-  margin-top: 16vh;
-  margin-bottom: 5%;
+  margin-top: 10vh;
+  /*margin-bottom: 5%;*/
   margin-left: 8px;
 }
 
@@ -150,4 +150,34 @@ article .inside {
 
 .header-logo {
   vertical-align: bottom;
+}
+
+
+
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+/*temporary*/
+footer {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  background: none;
+  margin-bottom: 0px;
+}
+
+.tagline {
+  color: white;
+  font-size: 2em;
+  font-family: 'Abel';
+}
+
+.get-started {
+  margin-top: 50px;
 }

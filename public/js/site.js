@@ -25,6 +25,7 @@
 
 jQuery(document).ready(function($) {
 
+  //scroll to
   $('a[href^="#"]').click(function(e){
     e.preventDefault();
     var dest = $(this).attr('href');
@@ -53,27 +54,27 @@ jQuery(document).ready(function($) {
   //   });
   // });
 
-  $('.get-started').magnificPopup({
-    src: '#subscribe',
-    type: 'inline',
-    preloader: false,
-    focus: '#email',
+  // $('.get-started').magnificPopup({
+  //   src: '#subscribe',
+  //   type: 'inline',
+  //   preloader: false,
+  //   // focus: '#email',
 
-    // When elemened is focused, some mobile browsers in some cases zoom in
-    // It looks not nice, so we disable it:
-    callbacks: {
-      beforeOpen: function() {
-        if($(window).width() < 700) {
-          this.st.focus = false;
-        } else {
-          this.st.focus = '#email';
-        }
-      },
-      open: function() {
-        console.log( this.currItem.el ); //$(this.currItem.el).attr('position')
-      }
-    }
-  });
+  //   // When elemened is focused, some mobile browsers in some cases zoom in
+  //   // It looks not nice, so we disable it:
+  //   callbacks: {
+  //     beforeOpen: function() {
+  //       if($(window).width() < 700) {
+  //         this.st.focus = false;
+  //       } else {
+  //         this.st.focus = '#email';
+  //       }
+  //     },
+  //     open: function() {
+  //       // console.log( this.currItem.el ); //$(this.currItem.el).attr('position')
+  //     }
+  //   }
+  // });
 
 
 });
