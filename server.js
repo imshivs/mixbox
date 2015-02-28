@@ -55,34 +55,30 @@ app.post('/signup', function(req, res){
     var person = items[0];
 
     //subscribe them to the mailchimp list
-    try{
-      mailchimp.listSubscribe({
-        id: process.env.MAILCHIMP_LIST,
-        email_address: person.email,
-        merge_vars: {
-          OPTIN_IP:     person.ip_address,
-          OPTIN_TIME:   person.date,
-        },
-        double_optin: false, //using confirmed opt-in
-        send_welcome: true,
-        update_existing: true
-      }, function(mc_err, data){
-        if(mc_err){
-          console.log(mc_err);
-          res.status(400).end();
-          return;
-        }
-        console.log(["added:", person, data]);
-        // console.log(["added:", person]);
-
-        res.status(200).end(""+person.id);
-        // res.redirect('/?quiz='+person.id);
-      });
-    }catch(e){
+    mailchimp.listSubscribe({
+      id: process.env.MAILCHIMP_LIST,
+      email_address: person.email,
+      merge_vars: {
+        OPTIN_IP:     person.ip_address,
+        OPTIN_TIME:   person.date,
+      },
+      double_optin: false, //using confirmed opt-in
+      send_welcome: true,
+      update_existing: true
+    }, function(mc_err, data){
+      if(mc_err){
         console.log(["Mailchimp failed:", person.id]);
         res.status(200).end(""+person.id);
-    }
+        console.log(mc_err);
+        // res.status(400).end();
+        return;
+      }
+      console.log(["added:", person, data]);
+      // console.log(["added:", person]);
 
+      res.status(200).end(""+person.id);
+      // res.redirect('/?quiz='+person.id);
+    });
   });
 });
 
