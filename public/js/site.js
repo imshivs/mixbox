@@ -60,7 +60,9 @@ jQuery(document).ready(function($) {
     }).done(function(data, status, jqXHR){
       //show quiz
       // $('#submit.hide').hide();
-      $('#start-quiz').show();
+      $('#start-quiz').css('display', 'block');
+      $('#sub-head').text("Awesome!");
+      $('#sub-msg').text("Now start building your taste profile by taking our preferences quiz.");
     })
     .always(function(){
       //hide loader
