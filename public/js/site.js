@@ -25,6 +25,8 @@
 
 jQuery(document).ready(function($) {
 
+  var EMAIL = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   //scroll to
   $('a[href^="#"]').click(function(e){
     e.preventDefault();
@@ -35,13 +37,19 @@ jQuery(document).ready(function($) {
   });
 
 
-  $(this).attr('disabled', true);
+  // $('#submit').attr('disabled', true);
   //form submission
   $('#submit').click(function(e){
+    e.preventDefault();
+
+    if( !$('input[name=email]').val().match(EMAIL) ){
+      $('input[name=email]').attr('placeholder', 'Please enter your email');
+      return;
+    }
+
     //show loader
     $(this).find(".loading").show();
     $(this).find("#btn-text").text("");
-    e.preventDefault();
 
     $.ajax({
       url: '/signup',
@@ -61,7 +69,6 @@ jQuery(document).ready(function($) {
       // $(this).find("#btn-text").text("");
     });
   });
-
 
 
   // $('.get-started').magnificPopup({
