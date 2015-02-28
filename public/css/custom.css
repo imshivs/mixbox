@@ -1,5 +1,9 @@
 /* Theme tweaks */
 
+body {
+  font-family: 'Abel', sans-serif;
+}
+
 ::-moz-selection {
   background:#536267;
   color:#333;
@@ -14,7 +18,7 @@ h1, h2, h3, h4, h5, h6,
 .navbar .brand a,
 ul#menu-main > li > a,
  {
-  font-family: 'Abel', cursive;
+  font-family: 'Abel', cursive, sans-serif;
 }
 
 .navbar .brand a:hover,
@@ -41,7 +45,7 @@ ul#menu-main > li > a:hover {
 }
 
 #headerwrap h1 {
-  font-family: 'Abel';
+  font-family: 'Abel', sans-serif;
   font-size: 2em;
   margin: inherit;
  }
@@ -51,7 +55,7 @@ section.single-page h1,
 #feature article p,
 section#portfolio hgroup h3,
 blockquote.mega p {
-  font-family: 'Abel';
+  font-family: 'Abel', sans-serif;
 }
 #headerwrap input[type=submit], a.button {
   background: #536267 !important;
@@ -65,7 +69,7 @@ article .inside {
   background: none;
 }
 #theme-form input[type=submit], .btn  {
-  font-family: 'Abel';
+  font-family: 'Abel', sans-serif;
   background: #536267 !important;
 }
 #feature article p {
@@ -175,9 +179,25 @@ footer {
 .tagline {
   color: white;
   font-size: 2em;
-  font-family: 'Abel';
+  font-family: 'Abel', sans-serif;
 }
 
 .get-started {
   margin-top: 50px;
+}
+
+.subscribe {
+  text-align: center;
+}
+
+.subscribe input {
+  width: 90%;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+#signup input[type="email"]{
+  text-align: center;
 }

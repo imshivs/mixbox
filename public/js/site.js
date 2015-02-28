@@ -34,25 +34,35 @@ jQuery(document).ready(function($) {
     });
   });
 
-  // //form submission
-  // $('#signup').submit(function(e){
-  //   //show loader
-  //   e.preventDefault();
 
-  //   $.ajax({
-  //     url: '/signup',
-  //     type: 'POST',
-  //     data: {
-  //       email: $('input[name=email]').val()
-  //     }
-  //   }).done(function(data, status, jqXHR){
-  //     //show quiz
-  //     $('#start-quiz').show(200);
-  //   })
-  //   .always(function(){
-  //     //hide loader
-  //   });
-  // });
+  $(this).attr('disabled', true);
+  //form submission
+  $('#submit').click(function(e){
+    //show loader
+    $(this).find(".loading").show();
+    $(this).find("#btn-text").text("");
+    e.preventDefault();
+
+    $.ajax({
+      url: '/signup',
+      type: 'POST',
+      data: {
+        email: $('input[name=email]').val()
+      }
+    }).done(function(data, status, jqXHR){
+      //show quiz
+      // $('#submit.hide').hide();
+      $('#start-quiz').show();
+    })
+    .always(function(){
+      //hide loader
+      $('#submit').hide();
+      // $(this).find(".loading").hide();
+      // $(this).find("#btn-text").text("");
+    });
+  });
+
+
 
   // $('.get-started').magnificPopup({
   //   src: '#subscribe',
