@@ -1,10 +1,10 @@
 html, body {
   height: 100%;
+  padding-bottom: 0px;
 }
 
 .splash {
   background:  url(../img/bar-blur-grey.png) no-repeat center center/cover;
-  height: 100vh;
   display: table;
   width: 100%;
   height: 100%;
@@ -51,11 +51,19 @@ nav.navbar {
   font-family: 'Abel', cursive, sans-serif;
 }
 
-.navbar .navbar-nav>.active>a,
+/*.navbar .navbar-nav>.active>a,
 .navbar .navbar-nav>.active>a:hover {
   background: none;
   color: #0b396d;
   text-decoration: underline;
+}*/
+
+.navbar .navbar-nav>li>a:hover {
+  color: #0b396d;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .navbar-header {
@@ -89,6 +97,10 @@ nav.navbar {
   margin-top: 20px;
 }
 
+.navbar-wrapper .container {
+  width: 100%;
+}
+
 .btn {
   color: white;
   border-color: white;
@@ -101,7 +113,45 @@ nav.navbar {
 }
 
 .btn:hover {
-  color: black;
+  color: white;
   /*color: rgba(0,0,0,0);*/
-  background-color: white;
+  background-color: #0b396d;
+  border-color: #0b396d;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-header a:hover .header-title {
+  color: #0b396d;
+
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+
+/*.get-started < #home {
+  background-color: #0b396d;
+}*/
+
+/*.social {
+  text-align: center;
+  font-size: 4em;
+  color: #0b396d;
+}*/
+
+
+/* HACK HEADER TODO REPLACE*/
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  font-size: 0.8em;
+}
+footer .copyright {
+  text-align: right;
 }
