@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   padding-bottom: 0px;
   position: relative;
+  min-width: 300px;
 }
 
 a:visited {
@@ -217,4 +218,19 @@ footer .copyright {
     display: none;
   }
 
+}
+@media(max-width: 767px){
+  .navbar-toggle {
+    background: none;
+    border-width: 0px;
+  }
+  .navbar .navbar-toggle:hover {
+    background-color: white;
+  }
+  .navbar .navbar-toggle:hover .icon-bar {
+    background-color: #0b396d;
+  }
+  .navbar-collapse {
+    border-width: 0px;
+  }
 }
