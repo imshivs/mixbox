@@ -1,0 +1,251 @@
+    <!DOCTYPE HTML>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Mixbox | Be Your Own Bartender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get two unique, delicious drinks delivered to your door every month.">
+    <meta name="author" content="">
+    <!-- Styles -->
+    <link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="vendor/jquery-modal/jquery.modal.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Google Web fonts -->
+    <link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/mixbox-logo-grey.ico">
+    </head>
+    <body>
+    <!--******************** NAVBAR ********************-->
+    <div class="navbar-wrapper">
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+            <h1 class="brand"><a href="#headerwrap"><img class="header-logo" src="img/mixbox-logo.png" WIDTH="8%"/>MIXBOX</a></h1>
+            <nav class="pull-right nav-collapse collapse">
+              <ul id="menu-main" class="nav">
+                <!-- <li><a title="portfolio" href="#portfolio">Portfolio</a></li> -->
+                <li><a title="Get Started" rel="modal:open" href="#subscribe">Get Started</a></li>
+                <!-- <li><a title="How it works" href="#about">How it Works</a></li> -->
+                <!-- <li><a title="team" href="#team">Team</a></li> -->
+                <li><a title="contact" href="mailto:team@openmixbox.com">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.navbar-inner -->
+      </div>
+      <!-- /.navbar -->
+    </div>
+    <!-- /.navbar-wrapper -->
+    <!-- <div id="top"></div> -->
+    <!-- ******************** HeaderWrap ********************-->
+    <div id="headerwrap">
+
+      <img class="splash" src="img/splashsb2.png"></img>
+      <br/>
+      <span class="tagline">Everything you need to make delicous mixed drinks, alcohol included</span>
+      <br/>
+      <a href="#subscribe" rel="modal:open" role="button" class="get-started btn" position="splash">Get Started</a>
+      <!-- <button class="gift" position="splash">Give as a Gift</button> -->
+      <div class="carrot">
+        <!-- <i class="fa fa-angle-down"></i> -->
+      </div>
+    </div>
+
+    <div id="subscribe" class="subscribe" style="display: none;">
+      <form  id="signup">
+        <h2 id="sub-head">Welcome!</h2>
+        <p id="sub-msg">To get started, enter your email address:</p>
+        <input type="email" name="email" placeholder="me@example.com"></input>
+        <a role="button" id="submit" class="btn submit" href="#submit"><i class="fa fa-spinner fa-pulse loading" style="display: none;"></i><span id="btn-text">Submit</span></a>
+        <div><a role="button" id="start-quiz" class="btn start-quiz typeform-share" href="https://charlesjuliank.typeform.com/to/EtCsfo" data-mode="1" target="_blank" style="display:none;">Start Quiz</a></div>
+        <script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()</script>
+      </form>
+    </div>
+
+    <!--******************** Feature ********************-->
+
+    <section id="how-it-works" class="section features">
+      <div class="container">
+        <div class="row-fluid">
+          <div class="span4 feature">
+            <div>
+              Sign up and tell us your drink preferences
+            </div>
+          </div>
+          <div class="span4 feature">
+            <div>
+              We'll carefully hand-pack all the elements of the perfect cocktail
+            </div>
+          </div>
+          <div class="span4 feature">
+            <div>
+              Get your box on delivered on Friday and start your weekend with class
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- SECTION TITLE -->
+<!--     <div class="section-page-landing section-light-grey" id="features">
+      <div class="inner-section">
+        <div class="container">
+          <div class="row" style="margin-left:15%;margin-right:15%;margin-top:-6%">
+            <div class="col-md-4 col-sm-6" >
+              <img src="img/what-you-get.png"/>
+            <div>
+            <div class="col-md-4 col-sm-6" >
+              <div class="the-box-landing border-hover-bottom text-center">
+                <h2>Delivered to Your Door</h2>
+                <i style= "color:orange" class="fa fa-envelope fa-5x"></i>
+                <p>
+                Less late night grocery runs.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="the-box-landing border-hover-bottom text-center">
+                <h2>Taste Profile</h2>
+                <i style="color:blue" class="fa fa-glass fa-5x"></i>
+                <p>
+                We develop customized drinks based upon your likes and dislikes.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="the-box-landing border-hover-bottom text-center">
+                <h2>Learn Mixology</h2>
+                <i style="color:green" class="fa fa-flask fa-5x"></i>
+                <p>
+                All the mixers, bar accessories and incredible recipes that'll impress your friends.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="the-box-landing border-hover-bottom text-center">
+                <h2>The Perfect Gift</h2>
+                <i style="color:pink" class="fa fa-gift fa-5x"></i>
+                <p>
+                Birthday, Valentine's Day, Anniversity, Christmas--you name it, MIXBOX's got you covered.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+    <!--******************** Team Section ********************-->
+<!--     <section id="team" class="single-page scrollblock">
+      <div class="container">
+        <div class="align"><i class="icon-group-circled"></i></div>
+        <h1>Meet the team</h1>
+        <div class="row">
+          <div class="span2 offset3">
+            <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-1.jpg" alt=""> </div>
+            <h3>Andrew</h3>
+            <div class="job-position">web designer</div>
+          </div>
+          <div class="span2">
+            <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-2.jpg" alt=""> </div>
+            <h3>Stephen</h3>
+            <div class="job-position">web developer</div>
+          </div>
+          <div class="span2">
+            <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-3.jpg" alt=""> </div>
+            <h3>Maria</h3>
+            <div class="job-position">graphic designer</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span10 offset1">
+            <hr class="featurette-divider">
+            <div class="featurette">
+              <h2 class="featurette-heading">Want to know more? <span class="muted">| a little about us</span></h2>
+              <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.</p>
+              <p>At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues.</p>
+              <p>A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.</p>
+            </div>
+            <hr class="featurette-divider">
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+
+    <!--******************** Contact Section ********************-->
+    <!-- <section id="contact" class="single-page scrollblock">
+      <div class="container">
+        <div class="align"><i class="icon-mail-2"></i></div>
+        <h1>Contact us now!</h1>
+        <div class="row">
+          <div class="span12">
+            <div class="cform" id="theme-form">
+              <form action="#" method="post" class="cform-form">
+                <div class="row">
+                  <div class="span6"> <span class="your-name">
+                    <input type="text" name="your-name" placeholder="Your Name" class="cform-text" size="40" title="your name">
+                    </span> </div>
+                  <div class="span6"> <span class="your-email">
+                    <input type="text" name="your-email" placeholder="Your Email" class="cform-text" size="40" title="your email">
+                    </span> </div>
+                </div>
+                <div class="row">
+                  <div class="span6"> <span class="company">
+                    <input type="text" name="company" placeholder="Your Company" class="cform-text" size="40" title="company">
+                    </span> </div>
+                  <div class="span6"> <span class="website">
+                    <input type="text" name="website" placeholder="Your Website" class="cform-text" size="40" title="website">
+                    </span> </div>
+                </div>
+                <div class="row">
+                  <div class="span12"> <span class="message">
+                    <textarea name="message" class="cform-textarea" cols="40" rows="10" title="drop us a line."></textarea>
+                    </span> </div>
+                </div>
+                <div>
+                  <input type="submit" value="Send message" class="cform-submit pull-left">
+                </div>
+                <div class="cform-response-output"></div>
+              </form>
+            </div>
+          </div> -->
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </section> -->
+    <!-- <hr> -->
+    <!-- <div class="footer-wrapper"> -->
+      <!-- <div class="container"> -->
+        <footer>
+          <small>&copy; 2015 Mixbox. All rights reserved.</small>
+        </footer>
+      <!-- </div> -->
+      <!-- ./container -->
+    <!-- </div> -->
+    <!-- Loading the javaScript at the end of the page -->
+    <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/jquery-modal/jquery.modal.js"></script>
+    <!--<script type="text/javascript" src="vendor/magnific-popup/dist/jquery.magnific-popup.js"></script>-->
+    <script type="text/javascript" src="js/site.js"></script>    
+    <!--ANALYTICS CODE-->
+  	<script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-59994558-1', 'auto');
+      ga('send', 'pageview');
+  	</script>
+  </body>
+</html>

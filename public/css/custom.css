@@ -211,3 +211,14 @@ footer {
     overflow: hidden;
   }
 }
+
+
+.feature {
+  font-size: 1.7em;
+  padding: 40px 10px;
+}
+
+.navbar-wrapper {
+  overflow: hidden;
+  position: relative;
+}
