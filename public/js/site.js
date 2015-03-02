@@ -60,7 +60,9 @@ jQuery(document).ready(function($) {
     }).done(function(data, status, jqXHR){
       //show quiz
       // $('#submit.hide').hide();
-      $('#start-quiz').css('display', 'block');
+      $('#start-quiz').attr('href', function(i, attr){
+        return attr+"?signupid="+(data || "-1")+"&email="+$('input[name=email]').val();
+      }).css('display', 'block');
       $('#sub-head').text("Awesome!");
       $('#sub-msg').text("Now start building your taste profile by taking our preferences quiz.");
     })
