@@ -1,6 +1,11 @@
 html, body {
   height: 100%;
   padding-bottom: 0px;
+  position: relative;
+}
+
+a:visited {
+  color: white;
 }
 
 .splash {
@@ -15,6 +20,8 @@ html, body {
   background: none;
   max-width: 350px;
   margin: auto;
+  width: 100%;
+  height: auto;
 }
 
 .splash-wrapper {
@@ -34,8 +41,8 @@ html, body {
   margin: auto;
 }
 .splash-text-wrapper {
-  padding-top: 8em;
-  padding-bottom: 5em;
+  padding-top: 5em;
+  padding-bottom: 0em;
 }
 
 .splash .tagline {
@@ -94,7 +101,7 @@ nav.navbar {
   display: inline;
 }
 .get-started {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .navbar-wrapper .container {
@@ -132,6 +139,17 @@ nav.navbar {
   transition: all 0.2s ease-in-out;
 }
 
+.subscribe {
+  text-align: center;
+  background-color: #0b396d;
+  color: white;
+}
+
+/* reset fucking bootstrap */
+.modal {
+  overflow: visible;
+  bottom: inherit;
+}
 
 /*.get-started < #home {
   background-color: #0b396d;
@@ -151,7 +169,52 @@ footer {
   bottom: 0px;
   width: 100%;
   font-size: 0.8em;
+  color: #474747;
 }
 footer .copyright {
   text-align: right;
+  padding-bottom: 5px;
+}
+
+#signup .btn {
+  margin-top: 15px;
+}
+
+#signup .btn:hover {
+  background-color: white;
+  border-color: white;
+  color: #0b396d;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#signup input[type="email"] {
+  width: 100%;
+  text-align: center;
+  color: rgb(110, 110, 110);
+  font-size: 1.3em;
+  margin: 20px 0px;
+}
+
+@media(max-width: 991px){
+  footer .city, footer .copyright {
+    text-align: center;
+  }
+}
+@media(max-width: 500px){
+/*  .navbar-wrapper {
+    display: none;
+  }*/
+  .splash-image-wrapper{
+    display: none;
+  }
+/*  .tagline {
+    font-size: .7em;
+  }*/
+  footer{
+    display: none;
+  }
+
 }
