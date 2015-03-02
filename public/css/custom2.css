@@ -38,7 +38,7 @@ a:visited {
 }
 
 .splash-image-wrapper {
-  width: 50%;
+  /*width: 50%;*/
   margin: auto;
 }
 .splash-text-wrapper {
@@ -204,16 +204,7 @@ footer .copyright {
     text-align: center;
   }
 }
-@media(max-width: 500px){
-/*  .navbar-wrapper {
-    display: none;
-  }*/
-  .splash-image-wrapper{
-    display: none;
-  }
-/*  .tagline {
-    font-size: .7em;
-  }*/
+@media(max-width: 600px){
   footer{
     display: none;
   }
