@@ -13,7 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~2.3.0",
+    "bootstrap": "~3.3.0",
     "jquery": "2.1.0",
     "fontawesome": "~4.3.0",
     "jquery-modal": "~0.5.2"
