@@ -226,3 +226,21 @@ footer .copyright {
   }
 }
 
+.feature {
+  margin: 100px 0px 40px 0px;
+  text-align: center;
+  font-size: 1.7em;
+}
+.feature-icon {
+  font-size: 4em;
+  padding-bottom: .5em;
+}
+
+section {
+  background-color: #0b396c;
+  color: white;
+}
+#how-it-works .button-row {
+  text-align: center;
+  margin-bottom: 75px;
+}
