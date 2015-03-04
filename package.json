@@ -19,5 +19,8 @@
   },
   "postinstall": "bower cache clean && bower install",
   "author": "",
+  "engines": {
+    "node": "0.10.x"
+  },
   "license": "BSD-2-Clause"
 }
