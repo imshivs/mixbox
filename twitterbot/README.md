@@ -6,8 +6,9 @@
   sudo easy_install virtualenv
   virtualenv twitterbot --python=python2.7
   cd twitterbot
+  git submodule init
   source bin/activate
-  pip -r requirements.txt
+  pip -r ../requirements.txt
 
 ## run
 
