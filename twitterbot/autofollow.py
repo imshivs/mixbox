@@ -3,6 +3,7 @@ from twitter_follow_bot import auto_follow, auto_follow_followers, auto_fav
 
 from yaml import load, Loader
 
+count = 10
 
 config = load(open('settings.yml', 'r'), Loader=Loader)
 
@@ -11,16 +12,16 @@ try:
 except IOError:
   config.update(os.environ)
 
-OAUTH_TOKEN = config.token
-OAUTH_SECRET = config.secret
-CONSUMER_KEY = config.consumer_key
-CONSUMER_SECRET = config.consumer_secret
-TWITTER_HANDLE = config.username
+OAUTH_TOKEN = config['token']
+OAUTH_SECRET = config['secret']
+CONSUMER_KEY = config['consumer_key']
+CONSUMER_SECRET = config['consumer_secret']
+TWITTER_HANDLE = config['username']
 
-auto_follow_followers_for_user(config['username'])
+# auto_follow_followers_for_user(config['username'])
 
 for phrase in config['phrases']:
-  auto_follow(phrase)
+  auto_follow(phrase, count)
 
 for hashtag in config['hashtags']:
-  auto_fav(hashtag)
+  auto_fav(hashtag, count)
