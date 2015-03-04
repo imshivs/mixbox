@@ -1,0 +1,3 @@
+[submodule "twitterbot/bot"]
+	path = twitterbot/bot
+	url = https://github.com/rabidaudio/twitter-follow-bot.git
