@@ -1,27 +1,24 @@
 import os
-from twitter_follow_bot import auto_follow, auto_follow_followers, auto_fav
-
 from yaml import load, Loader
 
-count = 10
+count = 100
 
 config = load(open('settings.yml', 'r'), Loader=Loader)
 
-try:
-  config.update(load(open('secrets.yml', 'r'), Loader=Loader))
-except IOError:
-  config.update(os.environ)
+os.environ['username'] = config['username']
 
-OAUTH_TOKEN = config['token']
-OAUTH_SECRET = config['secret']
-CONSUMER_KEY = config['consumer_key']
-CONSUMER_SECRET = config['consumer_secret']
-TWITTER_HANDLE = config['username']
+if os.path.isfile('secret.yml'):
+  os.environ.update(load(open('secret.yml', 'r'), Loader=Loader))
 
-# auto_follow_followers_for_user(config['username'])
+# print os.environ
+
+
+from bot import twitter_follow_bot as Bot
+
+Bot.auto_follow_followers_for_user(config['username'])
 
 for phrase in config['phrases']:
-  auto_follow(phrase, count)
+  Bot.auto_follow(phrase, count)
 
 for hashtag in config['hashtags']:
-  auto_fav(hashtag, count)
+  Bot.auto_fav(hashtag, count)
