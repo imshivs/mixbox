@@ -1,0 +1,80 @@
+nav.navbar {
+  background: none;
+  border-bottom-width: 0px;
+  font-size: 1.6em;
+  /*font-weight: bold;*/
+  font-family: 'Abel', cursive, sans-serif;
+}
+
+/*.navbar .navbar-nav>.active>a,
+.navbar .navbar-nav>.active>a:hover {
+  background: none;
+  color: #0b396d;
+  text-decoration: underline;
+}*/
+
+.navbar .navbar-nav>li>a:hover {
+  color: #0b396d;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-header {
+  margin-top: 0px;
+}
+
+.navbar .navbar-nav>li>a {
+  color: white;
+}
+
+.navbar .navbar-brand {
+  font-family: 'Abel', cursive, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color: white;
+  display: inline;
+  padding-top: 0px;
+}
+.navbar-nav {
+  float: right;
+}
+
+.header-logo {
+  height: 1em;
+  vertical-align: baseline;
+}
+.navbar-brand>img {
+  display: inline;
+}
+
+
+.navbar-wrapper .container {
+  width: 100%;
+}
+
+.navbar-header a:hover .header-title {
+  color: #0b396d;
+
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+@media(max-width: 767px){
+  .navbar-toggle {
+    background: none;
+    border-width: 0px;
+  }
+  .navbar .navbar-toggle:hover {
+    background-color: white;
+  }
+  .navbar .navbar-toggle:hover .icon-bar {
+    background-color: #0b396d;
+  }
+  .navbar-collapse {
+    border-width: 0px;
+  }
+}
