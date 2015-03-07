@@ -36,6 +36,10 @@ nav.navbar {
   color: white;
   display: inline;
   padding-top: 0px;
+
+  .header-title {
+    padding-left: .2em;
+  }
 }
 .navbar-nav {
   float: right;

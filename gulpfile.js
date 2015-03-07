@@ -68,7 +68,7 @@ gulp.task('scripts', ['clean:scripts'], function () {
     .pipe(wrap('(function () {\n\'use strict\';\n<%= contents %>\n})();')) //modularize each file with `use strict` statements
     .pipe(jshint()) //run jshint (using .jshintrc)
     .pipe(jshint.reporter(stylish))
-    .pipe(jshint.reporter('fail'))
+    // .pipe(jshint.reporter('fail'))
     .pipe(concat('site.js')) //combine to one file
     .pipe(wrap('jQuery(document).ready(function($){\n<%= contents %>\n});')) //wrap in a `document.ready` statement
     .pipe(gulpif(development, sourcemaps.init())) //sourcemaps only if in development mode
@@ -91,7 +91,7 @@ gulp.task('styles', ['clean:styles', 'pages'], function () {
 gulp.task('pages', ['clean:pages', 'general'], function (){
   gulp.src(paths.pages.src)
     .pipe(jade())
-    .pipe(inlineimghtml('src'))
+    // .pipe(inlineimghtml('src'))
     .pipe(gulp.dest(paths.pages.dest));
 });
 

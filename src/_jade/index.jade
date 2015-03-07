@@ -60,6 +60,7 @@ body
                   i.fa.fa-twitter
 
   #home.splash
+    .splash-bg
     .splash-wrapper
       .splash-content
         .splash-image-wrapper
@@ -67,10 +68,10 @@ body
         .splash-text-wrapper
           span.tagline Everything you need to make delicous mixed drinks {alcohol included}
           br
-          a.btn.btn-lg.get-started(href='#subscribe', rel='modal:open', role='button', loc='splash') Get Started
+          a.btn.btn-lg.get-started(href='#subscribe', rel='modal:open', role='button', position='splash') Get Started
           //- button.gift(position="splash") Give as a Gift
-      .carrot
-        i.fa.fa-angle-down
+      //- .carrot
+        //- i.fa.fa-angle-down
 
   #subscribe.subscribe(style='display:none;')
     form#signup
