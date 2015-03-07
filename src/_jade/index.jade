@@ -25,13 +25,13 @@ head
 body
   //- div(style="position: fixed; width:1px; left: 50%; top:0; bottom: 0; background-color: black;")
   //- div(style="position: fixed; height:1px; left: 0; top:50%; right: 0; background-color: black;")
-
   .navbar-wrapper
     .container
       nav.navbar.navbar-inverse.navbar-static-top
         .container
           h1.navbar-header
-            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse',
+              data-target='#navbar', aria-expanded='false', aria-controls='navbar')
               span.sr-only Toggle navigation
               span.icon-bar
               span.icon-bar
@@ -83,9 +83,13 @@ body
         i.fa.fa-spinner.fa-pulse.loading(style='display: none;')
         span#btn-text Submit
       div
-        a#start-quiz.btn.start-quiz.typeform-share(role='button', href='https://charlesjuliank.typeform.com/to/EtCsfo', data-mode='1', target='_blank', style='display:none;') Start Quiz
+        a#start-quiz.btn.start-quiz.typeform-share(
+          role='button', href='https://charlesjuliank.typeform.com/to/EtCsfo',
+          data-mode='1', target='_blank', style='display:none;') Start Quiz
       script.
-        (function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()
+        (function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',
+        b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;
+        js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()
 
   footer
     .container

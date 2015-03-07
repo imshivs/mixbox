@@ -9,7 +9,7 @@ function submit_email(e){
     return;
   }
 
-  //show loader
+  /*jshint validthis:true */
   $(this).find('.loading').show();
   $(this).find('#btn-text').text('');
 
