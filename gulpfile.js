@@ -15,7 +15,7 @@ var swank      = require('swank');
 var stylish    = require('jshint-stylish');
 
 
-var development = !process.env['PRODUCTION']; // set this env var in prod
+var development = (process.env['NODE_ENV'] === 'production'); // set this env var in prod
 
 /********** PATHS **********/
 var out_path = 'public';
@@ -121,5 +121,7 @@ gulp.task('serve', function(cb){
 });
 
 gulp.task('build', resources);
+
+gulp.task('heroku:production', ['build']);
 
 gulp.task('default', ['build', 'watch', 'serve']);
