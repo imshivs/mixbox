@@ -10,9 +10,7 @@
     "mailchimp": "^1.1.0",
     "multer": "^0.1.7",
     "orm": "^2.1.22",
-    "pg": "^4.2.0"
-  },
-  "devDependencies": {
+    "pg": "^4.2.0",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",

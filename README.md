@@ -2,8 +2,8 @@
 
 ## get started
 
-    npm install --dev && bower install
-    gulp # compile assets and start a watch server. **Doesn't** run backend, just static assets
+    npm install && bower install
+    gulp # compile assets and start a watch server. **Doesn't** run backend, just static assets (email form won't work)
 
 to run the actual server:
 
