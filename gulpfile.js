@@ -91,7 +91,7 @@ gulp.task('styles', ['clean:styles', 'pages'], function () {
 gulp.task('pages', ['clean:pages', 'general'], function (){
   gulp.src(paths.pages.src)
     .pipe(jade())
-    .pipe(inlineimghtml(out_path))
+    .pipe(inlineimghtml('src'))
     .pipe(gulp.dest(paths.pages.dest));
 });
 
@@ -105,7 +105,7 @@ gulp.task('bower', ['clean:bower'], function (){
 
 /********** RUN **********/
 
-var resources = ['scripts', 'styles', 'bower', 'pages', 'general'];
+var resources = ['general', 'pages', 'scripts', 'styles', 'bower'];
 
 gulp.task('watch', function () {
   resources.forEach(function(r){
