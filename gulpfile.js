@@ -13,6 +13,7 @@ var jade       = require('gulp-jade');
 var del        = require('del');
 var swank      = require('swank');
 var stylish    = require('jshint-stylish');
+var inlineimg  = require('gulp-inline-image-html');
 
 
 var development = (process.env['NODE_ENV'] === 'production'); // set this env var in prod
@@ -79,15 +80,16 @@ gulp.task('styles', ['clean:styles', 'pages'], function () {
     gulp.src(paths.styles.src)
       .pipe(gulpif(development, sourcemaps.init())) //sourcemaps only if in development mode
       .pipe(sass()) //compile sass
-      // .pipe(uncss({ html: paths.pages.all })) //remove unreferenced styles (be sure to compile pages first)
+      .pipe(uncss({ html: paths.pages.all })) //remove unreferenced styles (be sure to compile pages first)
       .pipe(csso()) //minify
       .pipe(gulpif(development, sourcemaps.write()))
       .pipe(gulp.dest(paths.styles.dest));
 });
 
-gulp.task('pages', ['clean:pages'], function (){
+gulp.task('pages', ['clean:pages', 'general'], function (){
   gulp.src(paths.pages.src)
     .pipe(jade())
+    // .pipe(inlineimg(out_path))
     .pipe(gulp.dest(paths.pages.dest));
 });
 
