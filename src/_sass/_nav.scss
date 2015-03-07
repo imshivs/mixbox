@@ -14,11 +14,12 @@ nav.navbar {
 }*/
 
 .navbar .navbar-nav>li>a:hover {
-  color: #0b396d;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  // color: #0b396d;
+  font-size: 1.01em;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .navbar-header {
@@ -58,14 +59,20 @@ nav.navbar {
   width: 100%;
 }
 
-.navbar-header a:hover .header-title {
-  color: #0b396d;
+// .navbar-header a:hover {
+//   border-bottom-style: dashed;
+//   border-bottom-width: 1px;
+// }
+// .navbar-header a:hover .header-title {
+//   // color: #0b396d;
+//   // text-decoration: underline;
+//   border-bottom-width: 1px;
 
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
+//   -webkit-transition: all 0.2s ease-in-out;
+//   -moz-transition: all 0.2s ease-in-out;
+//   -o-transition: all 0.2s ease-in-out;
+//   transition: all 0.2s ease-in-out;
+// }
 
 @media(max-width: 767px){
   .navbar-toggle {

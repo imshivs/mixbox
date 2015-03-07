@@ -29,6 +29,9 @@ a:visited {
   text-transform: uppercase;
   font-weight: bold;
 }
+.btn:focus {
+  color: inherit;
+}
 
 .btn:hover {
   color: white;
