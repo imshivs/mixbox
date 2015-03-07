@@ -1,20 +1,19 @@
-var express = require('express');
-var orm = require('orm');
-var app = express();
+var orm         = require('orm');
+var app         = require('express')();
+var MailChimp   = require('mailchimp').MailChimpAPI;
+var bodyParser  = require('body-parser');
+var multer      = require('multer'); 
+var compression = require('compression');
+var serveStatic = require('serve-static');
 
-var MailChimp = require('mailchimp').MailChimpAPI;
 
-var mailchimp = MailChimp(process.env.MAILCHIMP_KEY, { version : '1.3', secure: false });
-
-// body parsing
-var app = require('express')();
-var bodyParser = require('body-parser');
-var multer = require('multer'); 
+var mailchimp = MailChimp(process.env.MAILCHIMP_KEY, { version : '1.3', secure: true });
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer()); // for parsing multipart/form-data
-
+app.use(compression()); //gzip where posible
+app.use(serveStatic(__dirname + '/public', { maxAge: '1d' })); //serve static content
 
 app.use(orm.express(process.env.DATABASE_URL || "pg://postgres@localhost/mixbox", {
   define: function (db, models, next) {
@@ -31,10 +30,6 @@ app.use(orm.express(process.env.DATABASE_URL || "pg://postgres@localhost/mixbox"
       next();
   }
 }));
-
-//serve static content
-app.use(express.static(__dirname + '/public'));
-
 
 app.post('/signup', function(req, res){
 

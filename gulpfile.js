@@ -79,7 +79,7 @@ gulp.task('styles', ['clean:styles', 'pages'], function () {
     gulp.src(paths.styles.src)
       .pipe(gulpif(development, sourcemaps.init())) //sourcemaps only if in development mode
       .pipe(sass()) //compile sass
-      .pipe(uncss({ html: paths.pages.all })) //remove unreferenced styles (be sure to compile pages first)
+      // .pipe(uncss({ html: paths.pages.all })) //remove unreferenced styles (be sure to compile pages first)
       .pipe(csso()) //minify
       .pipe(gulpif(development, sourcemaps.write()))
       .pipe(gulp.dest(paths.styles.dest));
