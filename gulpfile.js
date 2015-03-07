@@ -1,19 +1,20 @@
-var gulp       = require('gulp');
-var uglify     = require('gulp-uglify');
-var concat     = require('gulp-concat');
-var sourcemaps = require('gulp-sourcemaps');
-var gulpif     = require('gulp-if');
-var wrap       = require("gulp-wrap");
-var sass       = require('gulp-sass');
-var uncss      = require('gulp-uncss');
-var csso       = require('gulp-csso');
-var jshint     = require('gulp-jshint');
-var gutil      = require('gulp-util');
-var jade       = require('gulp-jade');
-var del        = require('del');
-var swank      = require('swank');
-var stylish    = require('jshint-stylish');
-var inlineimg  = require('gulp-inline-image-html');
+var gulp          = require('gulp');
+var uglify        = require('gulp-uglify');
+var concat        = require('gulp-concat');
+var sourcemaps    = require('gulp-sourcemaps');
+var gulpif        = require('gulp-if');
+var wrap          = require("gulp-wrap");
+var sass          = require('gulp-sass');
+var uncss         = require('gulp-uncss');
+var csso          = require('gulp-csso');
+var jshint        = require('gulp-jshint');
+var gutil         = require('gulp-util');
+var jade          = require('gulp-jade');
+var del           = require('del');
+var swank         = require('swank');
+var stylish       = require('jshint-stylish');
+var inlineimg     = require('gulp-inline-image');
+var inlineimghtml = require('gulp-inline-image-html');
 
 
 var development = (process.env['NODE_ENV'] === 'production'); // set this env var in prod
@@ -80,7 +81,8 @@ gulp.task('styles', ['clean:styles', 'pages'], function () {
     gulp.src(paths.styles.src)
       .pipe(gulpif(development, sourcemaps.init())) //sourcemaps only if in development mode
       .pipe(sass()) //compile sass
-      .pipe(uncss({ html: paths.pages.all })) //remove unreferenced styles (be sure to compile pages first)
+      // .pipe(uncss({ html: paths.pages.all })) //remove unreferenced styles (be sure to compile pages first)
+      // .pipe(inlineimg())
       .pipe(csso()) //minify
       .pipe(gulpif(development, sourcemaps.write()))
       .pipe(gulp.dest(paths.styles.dest));
@@ -89,7 +91,7 @@ gulp.task('styles', ['clean:styles', 'pages'], function () {
 gulp.task('pages', ['clean:pages', 'general'], function (){
   gulp.src(paths.pages.src)
     .pipe(jade())
-    // .pipe(inlineimg(out_path))
+    .pipe(inlineimghtml(out_path))
     .pipe(gulp.dest(paths.pages.dest));
 });
 
