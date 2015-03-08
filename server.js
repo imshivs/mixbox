@@ -4,8 +4,6 @@ var MailChimp   = require('mailchimp').MailChimpAPI;
 var bodyParser  = require('body-parser');
 var multer      = require('multer'); 
 var compression = require('compression');
-var serveStatic = require('serve-static');
-var fs          = require('fs');
 
 
 var mailchimp = MailChimp(process.env.MAILCHIMP_KEY, { version : '1.3', secure: true });
@@ -80,15 +78,6 @@ app.post('/signup', function(req, res){
 app.get('/hello', function(req, res){
   res.end('ohai!');
 });
-
-// serve static assets or send requests to AWS
-// if(process.env['NODE_ENV']==='production'){
-//   var aws = JSON.parse(fs.readFileSync('./aws.json'));
-//   app.get(/^\/(img|js|css).*/, function(req, res) {
-//       res.redirect(302, 'https://'+aws.url + req.path);
-//   });
-// }
-app.use(serveStatic(__dirname + '/public', { maxAge: '7d' })); //serve static content
 
 
 var port = process.env.PORT || 8000;
