@@ -23,8 +23,6 @@ var s3            = require('s3');
 var development = (process.env['NODE_ENV'] !== 'production'); // set this env var in prod
 
 var aws = JSON.parse(fs.readFileSync('./aws.json'));
-aws.key = process.env['AWS_KEY'];
-aws.secret = process.env['AWS_SECRET'];
 aws.client = s3.createClient({
   s3Options: {
     accessKeyId: aws.key,
