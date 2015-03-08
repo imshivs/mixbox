@@ -11,7 +11,6 @@ var jshint        = require('gulp-jshint');
 var gutil         = require('gulp-util');
 var jade          = require('gulp-jade');
 var imagemin      = require('gulp-imagemin');
-var cdn           = require('gulp-cdn-replace');
 var autoprefixer  = require('gulp-autoprefixer');
 var del           = require('del');
 var swank         = require('swank');
@@ -113,13 +112,6 @@ gulp.task('styles', ['clean:styles'], function () {
 gulp.task('pages', ['clean:pages'], function (){
   gulp.src(paths.pages.src)
     .pipe(jade())
-    // .pipe(gulpif(!development, cdn({
-    //         dir: out_path,
-    //         root: {
-    //             js: aws.url,
-    //             css: aws.url
-    //         }
-    //     })))
     // .pipe(inlineimghtml('src'))
     .pipe(gulp.dest(paths.pages.dest));
 });
@@ -163,7 +155,7 @@ gulp.task('serve', function(cb){
 
 // Push static content to s3 for CloudFront CDN
 //http://openmixbox.s3.amazonaws.com/
-gulp.task('aws:cdn', ['build'], function (cb) {
+gulp.task('aws:cdn', function (cb) {
   setTimeout(function(){ // this is a hack. for some reason, this starts uploading
     // before the whole build is finished, even though clearly 'build' is a dependency. *sigh*
     var uploader = aws.client.uploadDir({
@@ -183,7 +175,5 @@ gulp.task('aws:cdn', ['build'], function (cb) {
 });
 
 gulp.task('build', resources);
-
-gulp.task('heroku:production', ['clean:all', 'build', 'aws:cdn']);
 
 gulp.task('default', ['build', 'watch', 'serve']);

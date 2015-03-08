@@ -14,7 +14,7 @@ function submit_email(e){
   $(this).find('#btn-text').text('');
 
   $.ajax({
-    url: '/signup',
+    url: 'https://backend.openmixbox.com/signup',
     type: 'POST',
     data: {
       email: $('input[name=email]').val()
