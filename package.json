@@ -39,6 +39,7 @@
     "gulp-wrap": "^0.11.0",
     "jshint-stylish": "^1.0.1",
     "level": "^0.18.0",
+    "serve-static": "^1.9.1",
     "swank": "^1.1.1"
   },
   "scripts": {

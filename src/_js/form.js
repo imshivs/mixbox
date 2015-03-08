@@ -19,7 +19,14 @@ function submit_email(e){
     data: {
       email: $('input[name=email]').val()
     }
-  }).done(function(data, status, jqXHR){
+  }).always(function(data, status, jqXHR){
+    //hide loader
+    $('#submit').hide();
+    // $(this).find(''.loading'').hide();
+    // $(this).find(''#btn-text'').text('');
+    if(status !== 'success'){
+      data = null;
+    }
     //show quiz
     // $('#submit.hide').hide();
     $('#start-quiz').attr('href', function(i, attr){
@@ -27,12 +34,6 @@ function submit_email(e){
     }).show();
     $('#sub-head').text('Awesome!');
     $('#sub-msg').text('Now start building your taste profile by taking our preferences quiz.');
-  })
-  .always(function(){
-    //hide loader
-    $('#submit').hide();
-    // $(this).find(''.loading'').hide();
-    // $(this).find(''#btn-text'').text('');
   });
 }
 

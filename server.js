@@ -79,6 +79,11 @@ app.get('/hello', function(req, res){
   res.end('ohai!');
 });
 
+if(process.env['NODE_ENV']!=='production'){
+  //serve static assets on development, too
+  app.use(require('serve-static')('public'));
+}
+
 
 var port = process.env.PORT || 8000;
 app.listen(port);
