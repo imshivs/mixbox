@@ -10,7 +10,6 @@ var csso          = require('gulp-csso');
 var jshint        = require('gulp-jshint');
 var gutil         = require('gulp-util');
 var jade          = require('gulp-jade');
-var s3            = require("gulp-s3");
 var imagemin      = require('gulp-imagemin');
 var cdn           = require('gulp-cdn-replace');
 var autoprefixer  = require('gulp-autoprefixer');
@@ -20,11 +19,19 @@ var stylish       = require('jshint-stylish');
 var inlineimg     = require('gulp-inline-image');
 var inlineimghtml = require('gulp-inline-image-html');
 var fs            = require('fs');
+var s3            = require('s3');
 
-
- 
-var aws = JSON.parse(fs.readFileSync('./aws.json'));
 var development = (process.env['NODE_ENV'] !== 'production'); // set this env var in prod
+
+var aws = JSON.parse(fs.readFileSync('./aws.json'));
+aws.key = process.env['AWS_KEY'];
+aws.secret = process.env['AWS_SECRET'];
+aws.client = s3.createClient({
+  s3Options: {
+    accessKeyId: aws.key,
+    secretAccessKey: aws.secret,
+  },
+});
 
 /********** PATHS **********/
 var out_path = 'public';
@@ -91,7 +98,7 @@ gulp.task('scripts', ['clean:scripts'], function () {
     .pipe(gulp.dest(paths.scripts.dest));
 });
 
-gulp.task('styles', ['clean:styles', 'pages'], function () {
+gulp.task('styles', ['clean:styles'], function () {
     gulp.src(paths.styles.src)
       .pipe(gulpif(development, sourcemaps.init())) //sourcemaps only if in development mode
       .pipe(sass()) //compile sass
@@ -103,9 +110,16 @@ gulp.task('styles', ['clean:styles', 'pages'], function () {
       .pipe(gulp.dest(paths.styles.dest));
 });
 
-gulp.task('pages', ['clean:pages', 'images'], function (){
+gulp.task('pages', ['clean:pages'], function (){
   gulp.src(paths.pages.src)
     .pipe(jade())
+    // .pipe(gulpif(!development, cdn({
+    //         dir: out_path,
+    //         root: {
+    //             js: aws.url,
+    //             css: aws.url
+    //         }
+    //     })))
     // .pipe(inlineimghtml('src'))
     .pipe(gulp.dest(paths.pages.dest));
 });
@@ -147,10 +161,29 @@ gulp.task('serve', function(cb){
   });
 });
 
-// gulp.task()
+// Push static content to s3 for CloudFront CDN
+//http://openmixbox.s3.amazonaws.com/
+gulp.task('aws:cdn', ['build'], function (cb) {
+  setTimeout(function(){ // this is a hack. for some reason, this starts uploading
+    // before the whole build is finished, even though clearly 'build' is a dependency. *sigh*
+    var uploader = aws.client.uploadDir({
+      localDir: out_path,
+      deleteRemoved: true,
+      s3Params: {
+        Bucket: aws.bucket,
+        ACL: "public-read"
+      }
+    });
+    uploader.on('progress', function() {
+      gutil.log("aws:cdn", "progress: "+(uploader.progressAmount/uploader.progressTotal*100)+"%");
+    });
+    uploader.on('error', cb);
+    uploader.on('end', cb);
+  }, 10*1000);
+});
 
 gulp.task('build', resources);
 
-gulp.task('heroku:production', ['build']);
+gulp.task('heroku:production', ['clean:all', 'build', 'aws:cdn']);
 
 gulp.task('default', ['build', 'watch', 'serve']);
