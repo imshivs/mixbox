@@ -17,18 +17,8 @@ var swank         = require('swank');
 var stylish       = require('jshint-stylish');
 var inlineimg     = require('gulp-inline-image');
 var inlineimghtml = require('gulp-inline-image-html');
-var fs            = require('fs');
-var s3            = require('s3');
 
 var development = (process.env['NODE_ENV'] !== 'production'); // set this env var in prod
-
-var aws = JSON.parse(fs.readFileSync('./aws.json'));
-aws.client = s3.createClient({
-  s3Options: {
-    accessKeyId: aws.key,
-    secretAccessKey: aws.secret,
-  },
-});
 
 /********** PATHS **********/
 var out_path = 'public';
@@ -153,24 +143,9 @@ gulp.task('serve', function(cb){
 
 // Push static content to s3 for CloudFront CDN
 //http://openmixbox.s3.amazonaws.com/
-gulp.task('aws:cdn', function (cb) {
-  setTimeout(function(){ // this is a hack. for some reason, this starts uploading
-    // before the whole build is finished, even though clearly 'build' is a dependency. *sigh*
-    var uploader = aws.client.uploadDir({
-      localDir: out_path,
-      deleteRemoved: true,
-      s3Params: {
-        Bucket: aws.bucket,
-        ACL: "public-read"
-      }
-    });
-    uploader.on('progress', function() {
-      gutil.log("aws:cdn", "progress: "+(uploader.progressAmount/uploader.progressTotal*100)+"%");
-    });
-    uploader.on('error', cb);
-    uploader.on('end', cb);
-  }, 10*1000);
-});
+// gulp.task('aws:cdn', function (cb) {
+//   awscdn(out_path, cb);
+// });
 
 gulp.task('build', resources);
 

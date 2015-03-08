@@ -3,3 +3,4 @@ bower_components
 public
 .secret
 aws.json
+.s3-cache
