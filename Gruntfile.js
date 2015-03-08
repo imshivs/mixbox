@@ -1,6 +1,4 @@
 var grunt = require('grunt');
-
-
 var level = require('level');
 var db = level('./.s3-cache');
 
@@ -14,7 +12,7 @@ module.exports = function(grunt) {
         key: '<%= aws.key %>',
         secret: '<%= aws.secret %>',
         bucket: '<%= aws.bucket %>',
-        db: function(){return db;},
+        db: function(){return db;}, //see grunt-s3-sync README
       },
       production: {
         root: __dirname + 'public',
@@ -44,5 +42,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-s3-sync');
   grunt.loadNpmTasks('grunt-invalidate-cloudfront');
 
-  grunt.registerTask('aws', ['s3-sync', 'invalidate_cloudfront']);
+  grunt.registerTask('deploy', ['s3-sync', 'invalidate_cloudfront']);
+
+  grunt.registerTask('default', 'no-op', function() {
+    grunt.log.error(
+      'grunt is only used for deployment to AWS CloudFront.\n'+
+      'If that\'s what you meant to do, run `grunt deploy`.\n'+
+      'If you\'re looking for normal tasks (build, serve), use `gulp`.'
+    );
+  });
 };

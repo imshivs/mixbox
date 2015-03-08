@@ -141,11 +141,7 @@ gulp.task('serve', function(cb){
   });
 });
 
-// Push static content to s3 for CloudFront CDN
-//http://openmixbox.s3.amazonaws.com/
-// gulp.task('aws:cdn', function (cb) {
-//   awscdn(out_path, cb);
-// });
+// To push static content to s3 for CloudFront CDN, use grunt deploy
 
 gulp.task('build', resources);
 
