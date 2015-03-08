@@ -10,14 +10,21 @@ var csso          = require('gulp-csso');
 var jshint        = require('gulp-jshint');
 var gutil         = require('gulp-util');
 var jade          = require('gulp-jade');
+var s3            = require("gulp-s3");
+var imagemin      = require('gulp-imagemin');
+var cdn           = require('gulp-cdn-replace');
+var autoprefixer  = require('gulp-autoprefixer');
 var del           = require('del');
 var swank         = require('swank');
 var stylish       = require('jshint-stylish');
 var inlineimg     = require('gulp-inline-image');
 var inlineimghtml = require('gulp-inline-image-html');
+var fs            = require('fs');
 
 
-var development = (process.env['NODE_ENV'] === 'production'); // set this env var in prod
+ 
+var aws = JSON.parse(fs.readFileSync('./aws.json'));
+var development = (process.env['NODE_ENV'] !== 'production'); // set this env var in prod
 
 /********** PATHS **********/
 var out_path = 'public';
@@ -39,6 +46,10 @@ var paths = {
     src: ['src/!(_*)', 'src/!(_*)/**/*'], //will match any file/directory not begining with `_`
     dest: out_path
   },
+  images: {
+    src: 'src/_img/**/*',
+    dest: out_path+'/img'
+  },
   bower:{
     src: 'bower_components/**/*',
     dest: out_path+'/vendor'
@@ -55,11 +66,14 @@ gulp.task('clean:styles', function(cb) {
 gulp.task('clean:pages', function(cb) {
   del(paths.pages.all, cb);
 });
-gulp.task('clean:all', function(cb) {
-  del([out_path+'/**/*', '!'+out_path+'/.gitkeep'], cb);
-});
 gulp.task('clean:bower', function(cb) {
   del(paths.bower.dest, cb);
+});
+gulp.task('clean:images', function(cb){
+  del(paths.images.dest, cb);
+});
+gulp.task('clean:all', function(cb) {
+  del([out_path+'/**/*', '!'+out_path+'/.gitkeep'], cb);
 });
 
 /********** BUILD **********/
@@ -68,7 +82,7 @@ gulp.task('scripts', ['clean:scripts'], function () {
     .pipe(wrap('(function () {\n\'use strict\';\n<%= contents %>\n})();')) //modularize each file with `use strict` statements
     .pipe(jshint()) //run jshint (using .jshintrc)
     .pipe(jshint.reporter(stylish))
-    // .pipe(jshint.reporter('fail'))
+    // .pipe(jshint.reporter('fail')) //stop if jshint doesn't pass
     .pipe(concat('site.js')) //combine to one file
     .pipe(wrap('jQuery(document).ready(function($){\n<%= contents %>\n});')) //wrap in a `document.ready` statement
     .pipe(gulpif(development, sourcemaps.init())) //sourcemaps only if in development mode
@@ -81,14 +95,15 @@ gulp.task('styles', ['clean:styles', 'pages'], function () {
     gulp.src(paths.styles.src)
       .pipe(gulpif(development, sourcemaps.init())) //sourcemaps only if in development mode
       .pipe(sass()) //compile sass
-      // .pipe(uncss({ html: paths.pages.all })) //remove unreferenced styles (be sure to compile pages first)
-      // .pipe(inlineimg())
-      .pipe(csso()) //minify
+      .pipe(autoprefixer())
+      // .pipe(uncss({ html: paths.pages.all })) //remove unreferenced styles
+      // .pipe(inlineimg()) //embed images in css
+      // .pipe(csso()) //minify
       .pipe(gulpif(development, sourcemaps.write()))
       .pipe(gulp.dest(paths.styles.dest));
 });
 
-gulp.task('pages', ['clean:pages', 'general'], function (){
+gulp.task('pages', ['clean:pages', 'images'], function (){
   gulp.src(paths.pages.src)
     .pipe(jade())
     // .pipe(inlineimghtml('src'))
@@ -103,9 +118,17 @@ gulp.task('bower', ['clean:bower'], function (){
   gulp.src(paths.bower.src).pipe(gulp.dest(paths.bower.dest)); //copy all
 });
 
+gulp.task('images', ['clean:images'], function (){
+  gulp.src(paths.images.src)
+    .pipe(imagemin({
+      progressive: true,
+    }))
+    .pipe(gulp.dest(paths.images.dest));
+});
+
 /********** RUN **********/
 
-var resources = ['general', 'pages', 'scripts', 'styles', 'bower'];
+var resources = ['general', 'pages', 'scripts', 'styles', 'images', 'bower'];
 
 gulp.task('watch', function () {
   resources.forEach(function(r){
@@ -123,6 +146,8 @@ gulp.task('serve', function(cb){
     cb();
   });
 });
+
+// gulp.task()
 
 gulp.task('build', resources);
 

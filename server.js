@@ -13,7 +13,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer()); // for parsing multipart/form-data
 app.use(compression()); //gzip where posible
-app.use(serveStatic(__dirname + '/public', { maxAge: '7d' })); //serve static content
+// app.use(serveStatic(__dirname + '/public', { maxAge: '7d' })); //serve static content
 
 app.use(orm.express(process.env.DATABASE_URL || "pg://postgres@localhost/mixbox", {
   define: function (db, models, next) {
@@ -76,6 +76,11 @@ app.post('/signup', function(req, res){
     });
   });
 });
+
+//send static asset requests to AWS
+// app.get(/^.*/, function(req, res) {
+//     res.redirect(301, '//s3.amazonaws.com/bucket' + req.path);
+// });
 
 var port = process.env.PORT || 5000;
 app.listen(port);
