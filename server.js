@@ -5,6 +5,7 @@ var bodyParser  = require('body-parser');
 var multer      = require('multer'); 
 var compression = require('compression');
 var serveStatic = require('serve-static');
+var fs          = require('fs');
 
 
 var mailchimp = MailChimp(process.env.MAILCHIMP_KEY, { version : '1.3', secure: true });
@@ -13,7 +14,6 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer()); // for parsing multipart/form-data
 app.use(compression()); //gzip where posible
-// app.use(serveStatic(__dirname + '/public', { maxAge: '7d' })); //serve static content
 
 app.use(orm.express(process.env.DATABASE_URL || "pg://postgres@localhost/mixbox", {
   define: function (db, models, next) {
@@ -77,12 +77,21 @@ app.post('/signup', function(req, res){
   });
 });
 
-//send static asset requests to AWS
-// app.get(/^.*/, function(req, res) {
-//     res.redirect(301, '//s3.amazonaws.com/bucket' + req.path);
-// });
+app.get('/hello', function(req, res){
+  res.end('ohai!');
+});
 
-var port = process.env.PORT || 5000;
+// serve static assets or send requests to AWS
+// if(process.env['NODE_ENV']==='production'){
+//   var aws = JSON.parse(fs.readFileSync('./aws.json'));
+//   app.get(/^\/(img|js|css).*/, function(req, res) {
+//       res.redirect(302, 'https://'+aws.url + req.path);
+//   });
+// }
+app.use(serveStatic(__dirname + '/public', { maxAge: '7d' })); //serve static content
+
+
+var port = process.env.PORT || 8000;
 app.listen(port);
 console.log("Listening on "+port);
 
