@@ -79,6 +79,10 @@ app.get('/hello', function(req, res){
   res.end('ohai!');
 });
 
+app.get('/', function(req, res){
+  res.redirect(301, 'http://openmixbox.com');
+})
+
 if(process.env['NODE_ENV']!=='production'){
   //serve static assets on development, too
   app.use(require('serve-static')('public'));
