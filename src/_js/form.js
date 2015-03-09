@@ -14,7 +14,7 @@ function submit_email(e){
   $(this).find('#btn-text').text('');
 
   $.ajax({
-    url: 'https://backend.openmixbox.com/signup',
+    url: 'https://mixbox-rocks.herokuapp.com/signup',
     type: 'POST',
     data: {
       email: $('input[name=email]').val()
