@@ -75,7 +75,7 @@ app.post('/signup', function(req, res){
   });
 });
 
-app.get('/hello', function(req, res){
+app.get('/backend/hello', function(req, res){
   res.end('ohai!');
 });
 
