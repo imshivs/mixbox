@@ -45,15 +45,12 @@ body
               li
                 a(href='mailto:team@openmixbox.com')
                   i.fa.fa-envelope
-                    
               li
                 a(href='https://facebook.com/openthemixbox')
                   i.fa.fa-facebook
-                    
               li
                 a(href='https://instagram.com/openmixbox')
                   i.fa.fa-instagram
-                    
               li
                 a(href='https://twitter.com/openmixbox')
                   i.fa.fa-twitter
@@ -67,10 +64,10 @@ body
         .splash-text-wrapper
           span.tagline Everything you need to make delicous mixed drinks {alcohol included}
           br
-          a.btn.btn-lg.get-started(href='#subscribe', rel='modal:open', role='button', position='splash') Get Started
+          a.btn.btn-lg.get-started(href='#subscribe', rel='modal:open', role='button', position='splash' data-sr='wait 1s then enter top') Get Started
           //- button.gift(position="splash") Give as a Gift
-      //- .carrot
-        //- i.fa.fa-angle-down
+      .carrot(data-sr='wait 3s then enter bottom')
+        i.fa.fa-angle-down
 
   #subscribe.subscribe(style='display:none;')
     form#signup
@@ -93,17 +90,17 @@ body
   section#how-it-works
       .container
           .row
-            .col-md-4.feature
+            .col-md-4.feature(data-sr='enter left')
               i.fa.fa-pencil-square-o.feature-icon
               .feature-text Sign up and tell us your drink preferences
-            .col-md-4.feature
+            .col-md-4.feature(data-sr='enter bottom')
               i.fa.fa-flask.feature-icon
               .feature-text We&apos;ll carefully hand-pack all the elements of the perfect cocktail
-            .col-md-4.feature
+            .col-md-4.feature(data-sr='enter right')
               i.fa.fa-glass.feature-icon
               .feature-text Get your box on delivered on Friday and start your weekend with class
           .row.button-row
-            .col-md-12
+            .col-md-12(data-sr='enter bottom wait 0.3s')
               a.btn.btn-lg.get-started(href='#subscribe', rel='modal:open', role='button', position='how-it-works') Get Started
 
   footer
@@ -123,6 +120,7 @@ body
   script(type='text/javascript', src='//code.jquery.com/jquery-2.1.3.min.js')
   script(type='text/javascript', src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
   script(type='text/javascript', src='vendor/jquery-modal/jquery.modal.min.js')
+  script(type='text/javascript', src='vendor/scroll-reveal/scrollReveal.js')
   script(type='text/javascript', src='js/site.js')
 
   script(type='text/javascript').
