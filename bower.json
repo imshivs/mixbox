@@ -13,6 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery-modal": "~0.5.2"
+    "jquery-modal": "~0.5.2",
+    "scroll-reveal": "~2.1.0"
   }
 }

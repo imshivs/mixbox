@@ -17,6 +17,7 @@ var swank         = require('swank');
 var stylish       = require('jshint-stylish');
 var inlineimg     = require('gulp-inline-image');
 var inlineimghtml = require('gulp-inline-image-html');
+var gzip          = require('gulp-gzip');
 
 var development = (process.env['NODE_ENV'] !== 'production'); // set this env var in prod
 
