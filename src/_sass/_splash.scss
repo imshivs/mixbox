@@ -28,6 +28,7 @@
 }
 
 .splash {
+  color: white;
   position: relative;
   background-color: #0b396c;
   display: table;
@@ -46,6 +47,16 @@
     color: white;
     font-size: 2.5em;
     font-family: 'Abel', sans-serif;
+  }
+
+  .error-email, .error-email:hover, .error-email:visited{
+    color: white;
+    font-size: 2em;
+    font-style: italic;
+    text-decoration: underline;
+  }
+  .error-email:hover {
+    text-decoration: none;
   }
 }
 
